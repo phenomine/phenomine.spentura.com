@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{ifset title}{include title}{/ifset} | The Phenomine Framework</title>
     {tailwindcss}
+    <link rel="preconnect" href="https://{config('algolia.app_id')}-dsn.algolia.net" crossorigin />
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -64,6 +65,7 @@
         }
     });
 </script>
+<script src="{asset('build/js/algolia.js')}"></script>
 {ifset scripts}
 {include scripts}
 {/ifset}

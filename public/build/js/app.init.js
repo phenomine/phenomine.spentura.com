@@ -4,12 +4,14 @@ document.addEventListener('DOMContentLoaded', function () {
     initFlowbite();
     initSidebar();
     initTableOfContents();
+    initDocsearch();
 });
 document.addEventListener('htmx:afterSettle', function (event) {
     initFlowbite();
     initSidebar();
     initTableOfContents();
     window.scrollTo(0, 0);
+    initDocsearch();
 });
 
 document.addEventListener('htmx:beforeSwap', function (event) {
@@ -161,5 +163,19 @@ const initSidebar = () => {
     });
     sidebarBackdrop.addEventListener('click', function () {
         toggleSidebarMobile(sidebar, sidebarBackdrop, toggleSidebarMobileHamburger, toggleSidebarMobileClose);
+    });
+};
+
+const initDocsearch = () => {
+
+    if (!document.getElementById('docsearch')) {
+        return;
+    }
+
+    docsearch({
+        container: "#docsearch",
+        appId: "GNGOVDLNLS",
+        apiKey: "73d6f4bea474f3454707534f9bc4121a",
+        indexName: "3.x",
     });
 };
