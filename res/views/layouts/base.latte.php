@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{ifset title}{include title}{/ifset} | The Phenomine Framework</title>
     {tailwindcss}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3" />
     <script>
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -22,29 +21,6 @@
   <path fill-rule="evenodd" d="M9 2a1 1 0 0 0-1 1H6a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2a1 1 0 0 0-1-1H9Zm1 2h4v2h1a1 1 0 1 1 0 2H9a1 1 0 0 1 0-2h1V4Zm5.707 8.707a1 1 0 0 0-1.414-1.414L11 14.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4Z" clip-rule="evenodd"/>
 </svg>
 '>
-<div class="ais-InstantSearch">
-    <div id="searchbox"></div>
-    <div id="hits"></div>
-</div>
-<div class="group relative">
-    <div class="relative h-10 w-full min-w-[200px]">
-        <input
-            type="email"
-            placeholder="Search"
-            readonly=""
-            class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 focus:border-2 focus:border-gray-900 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50 group-hover:border-2 group-hover:border-gray-900"
-        />
-    </div>
-    <div class="absolute top-[calc(50%-1px)] right-2.5 -translate-y-2/4">
-        <kbd class="rounded border border-blue-gray-100 bg-white px-1 pt-px pb-0 text-xs font-medium text-gray-900 shadow shadow-black/5">
-      <span class="mr-0.5 inline-block translate-y-[1.5px] text-base">
-        ⌘
-      </span>
-            K
-        </kbd>
-    </div>
-    <div id="docsearch" class="absolute inset-0 w-full opacity-0"></div>
-</div>
 {ifset navbar}
 {include navbar}
 {/ifset}
@@ -55,7 +31,6 @@
 {include footer}
 {/ifset}
 <script src="{asset('build/js/app.min.js')}"></script>
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
 <script type="module" src="{asset('build/js/app.init.js')}"></script>
 <script src="{asset('build/js/prism.js')}"></script>
 <script>
