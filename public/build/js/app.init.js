@@ -172,10 +172,65 @@ const initDocsearch = () => {
         return;
     }
 
+    const translations= {
+        button: {
+            buttonText: 'Quick search',
+            buttonAriaLabel: 'Search',
+        },
+        modal: {
+            searchBox: {
+                resetButtonTitle: 'Clear the query',
+                resetButtonAriaLabel: 'Clear the query',
+                cancelButtonText: 'Cancel',
+                cancelButtonAriaLabel: 'Cancel',
+                searchInputLabel: 'Search',
+            },
+            startScreen: {
+                recentSearchesTitle: 'Recent',
+                noRecentSearchesText: 'No recent searches',
+                saveRecentSearchButtonTitle: 'Save this search',
+                removeRecentSearchButtonTitle: 'Remove this search from history',
+                favoriteSearchesTitle: 'Favorite',
+                removeFavoriteSearchButtonTitle: 'Remove this search from favorites',
+            },
+            errorScreen: {
+                titleText: 'Unable to fetch results',
+                helpText: 'You might want to check your network connection.',
+            },
+            footer: {
+                selectText: 'to select',
+                selectKeyAriaLabel: 'Enter key',
+                navigateText: 'to navigate',
+                navigateUpKeyAriaLabel: 'Arrow up',
+                navigateDownKeyAriaLabel: 'Arrow down',
+                closeText: 'to close',
+                closeKeyAriaLabel: 'Escape key',
+                searchByText: 'Search by',
+            },
+            noResultsScreen: {
+                noResultsText: 'No results for',
+                suggestedQueryText: 'Try searching for',
+                reportMissingResultsText: 'Believe this query should return results?',
+                reportMissingResultsLinkText: 'Let us know.',
+            },
+        },
+    };
+
     docsearch({
         container: "#docsearch",
-        appId: "GNGOVDLNLS",
-        apiKey: "73d6f4bea474f3454707534f9bc4121a",
-        indexName: "3.x",
+        appId: "KQNYJOJEOJ",
+        apiKey: "fbcc10722d6bfc8d667cfb45639702e3",
+        indexName: "phenomine-spentura",
+        getMissingResultsUrl({ query }) {
+            return `https://github.com/phenomine/docs/issues/new?title=${query}`;
+        },
+        placeholder: "Search docs",
+        translations: translations,
+    });
+
+    document.querySelectorAll('.btn-search').forEach(function (el) {
+        el.addEventListener('click', function () {
+            document.getElementsByClassName('DocSearch-Button')[0].click()
+        });
     });
 };

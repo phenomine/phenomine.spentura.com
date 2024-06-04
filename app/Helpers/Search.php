@@ -14,7 +14,6 @@ class Search
     {
         $client = SearchClient::create(config('algolia.app_id'), config('algolia.api_key'));
         $directories = File::allDirectories(res_path('static/docs'));
-        $records = [];
         foreach ($directories as $directory) {
             $index = $this->datasetPerVersion(basename($directory));
             $algolia = $client->initIndex(basename($directory));
